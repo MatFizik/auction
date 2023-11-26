@@ -1,24 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import './components/Assets/sections.scss';
+import './components/defaultStyles.scss';
+import Routing from'./components/Routing';
+import Main from './components/Main/Main';
+import SignIn from './components/SignIn/SignIn';
+import { ConfigProvider } from "antd";
+import Theme from "./components/Assets/Ant_Design_Theme.json";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigProvider theme={Theme}>
+    <Routing />;
+    </ConfigProvider>
   );
 }
 

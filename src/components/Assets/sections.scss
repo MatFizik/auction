@@ -1,0 +1,106 @@
+#root {
+  overflow: hidden;
+}
+$clr-primary: #53A099;
+$clr-text: #565254;
+
+* {
+  box-sizing: border-box;
+}
+
+.section_wrapp {
+  padding: 96px 0 0 0;
+  width: 100%;
+  .section_content {
+    margin: 0 auto;
+    max-width: 1200px;
+    .card_wrapp {
+      position: relative;
+      width: 100%;
+      background-color: #ffff;
+      border-radius: 10px;
+      min-height: 144px;
+      max-width: calc(33.33% - 20px);
+      margin: 0 10px 20px;
+      align-items: flex-start;
+      .card_description {
+        font-size: 24px;
+        text-align: left;
+        line-height: 1.2;
+        font-weight: bold;
+        align-self: center;
+      }
+      .card_image {
+        align-self: center;
+        img {
+          width: 100px;
+        }
+      }
+    }
+    .step {
+      width: 350px;
+      background-color: #ffff;
+      border-radius: 10px;
+      padding: 30px;
+      .number {
+        background: #007957;
+        width: 50px;
+        margin-bottom: 20px;
+        height: 50px;
+        color: #fcfcfc;
+        padding: 10px;
+        border-radius: 100%;
+        font-weight: 600;
+        font-size: 22px;
+      }
+
+      .step_description {
+        font-size: 16px;
+        width: 100%;
+        text-align: left;
+        line-height: 1;
+        color: #757575;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+.title_section {
+  color: #37383d;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 0.9em;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.title_small {
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  line-height: 1;
+  color: #757575;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.title_big {
+  font-size: 24px;
+  text-align: left;
+  color: $clr-text;
+  line-height: 1.2;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+.text_link_route{
+  color: $clr-text;
+  cursor: pointer;
+  &:hover{
+    color: $clr-primary;
+  }
+}

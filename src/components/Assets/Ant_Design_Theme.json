@@ -1,0 +1,15 @@
+{
+    "token": {
+      "colorPrimary": "#53a099",
+      "colorInfo": "#53a099",
+      "borderRadius": 10
+    },
+    "components": {
+      "Button": {
+        "controlHeight": 50
+      },
+      "Input": {
+        "controlHeight": 40
+      }
+    }
+  }

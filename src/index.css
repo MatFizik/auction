@@ -1,12 +1,49 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+    font-family: 'Nunito sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F0F1F3;
 }
 
+@font-face {
+  font-family: 'Nunito sans';
+  src: url('./components/public/fonts/nunitosans/NunitoSans-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  /* Дополнительные параметры, такие как font-weight и font-style, могут быть добавлены здесь */
+}
+@font-face {
+  font-family: 'Nunito sans';
+  src: url('./components/public/fonts/nunitosans/NunitoSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  /* Дополнительные параметры, такие как font-weight и font-style, могут быть добавлены здесь */
+}
+@font-face {
+  font-family: 'Nunito sans';
+  src: url('./components/public/fonts/nunitosans/NunitoSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  /* Дополнительные параметры, такие как font-weight и font-style, могут быть добавлены здесь */
+}
+@font-face {
+  font-family: 'Nunito sans';
+  src: url('./components/public/fonts/nunitosans/NunitoSans-SemiBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  /* Дополнительные параметры, такие как font-weight и font-style, могут быть добавлены здесь */
+}
+@font-face {
+  font-family: 'Nunito sans';
+  src: url('./components/public/fonts/nunitosans/NunitoSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  /* Дополнительные параметры, такие как font-weight и font-style, могут быть добавлены здесь */
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
