@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import Auth from "./SignIn/SignIn";
 import Main from "./Main/Main";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import SignUp from "./SignUp/SignUp";
+import SignIn from "./SignIn/SignIn";
 
 export default function Routing() {
   // const isAuth = useSelector((state) => state.auth.isAuth);
@@ -15,7 +16,8 @@ export default function Routing() {
       <Router>
         <Routes>
           <Route path="/" element={<Main />}></Route>
-          <Route path="/login" element={<Auth />}></Route>
+          <Route path="/signin" element={<SignIn />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
         </Routes>
       </Router>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./signIn.scss";
 import { Input, Button } from "antd";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   return (
@@ -22,7 +23,7 @@ const SignIn = () => {
             </div>
           </form>
         </div>
-          <div className="text_link_route">Регистрация</div>
+          <div className="text_link_route"><Link to="/signup">Регистрация</Link></div>
       </div>
     </div>
   );
