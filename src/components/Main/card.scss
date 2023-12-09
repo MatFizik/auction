@@ -1,0 +1,42 @@
+@import "../Assets/colors.scss";
+
+.card_wrapp {
+    position: relative;
+    width: 100%;
+    background-color: #ffff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0 0 20px 0;
+    align-items: flex-start;
+    .card_description {
+      font-size: 24px;
+      text-align: left;
+      line-height: 1.2;
+      font-weight: bold;
+      align-self: center;
+    }
+    .card_image {
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      border-radius: 30px;
+      margin-right: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .info_wrapp{
+        height: 100%;
+        .label_card, .label_var{
+            font-size: 16px;
+            color: $clr-text-bold;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .label{
+            font-size: 14px;
+            color: $clr-text;
+        }
+    }
+  }

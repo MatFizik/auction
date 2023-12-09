@@ -2,11 +2,30 @@ import React from "react";
 import "./signUp.scss";
 import { Input, Button, Form } from "antd";
 import { Link } from "react-router-dom";
+import ApiService from "../APIService/ApiService";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const navigate = useNavigate();
+
+  const onFinish = async (data) => {
+    console.log(data);
+      let formData = new FormData();
+      formData.append("name", data.username);
+      formData.append("email", data.email);
+      formData.append("password", data.password);
+      let r = await ApiService.registration(formData)
+      console.log(r);
+      if(r.code == 0){
+        navToNext()
+        console.log("Успешно")
+      }
   };
+
+  const navToNext = () => {
+    navigate("/signin");
+  }
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -32,7 +51,7 @@ const SignUp = () => {
                 },
               ]}
             >
-              <Input placeholder="Логин"/>
+              <Input placeholder="Имя"/>
             </Form.Item>
 
             <Form.Item
@@ -45,6 +64,17 @@ const SignUp = () => {
               ]}
             >
               <Input.Password placeholder="Пароль" />
+            </Form.Item>
+            <Form.Item
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password!",
+                },
+              ]}
+            >
+              <Input placeholder="E-mail" />
             </Form.Item>
             <Form.Item>
             <Button className="w100 form_item_wrapp" type="primary" htmlType="submit">Создать аккаунт</Button>

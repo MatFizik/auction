@@ -1,0 +1,32 @@
+@import "../Assets/colors.scss";
+
+.lot{
+    .gallery{
+        height: 320px;
+        overflow: hidden;
+        
+        img{
+            width: 250px;
+            height: 100%;
+            border-radius: 10px;
+        }
+        margin-bottom: 50px;
+    }
+    .section{
+        width: 100%;
+        background: #fff;
+        margin: 20px 0;
+        border-radius: 10px;
+        word-wrap:break-word;
+        .label_name, .label_var{
+            font-size: 16px;
+            color: $clr-text-bold;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .label{
+            font-size: 14px;
+            color: $clr-text;
+        }
+    }
+}

@@ -1,3 +1,75 @@
 .select_wrapp{
     margin-bottom: 10px;
 }
+.header{
+    .menu_burger_line{
+        width: 30px;
+        height: 3px;
+        background-color: #000;
+        margin: 5px;
+    }
+    .profile_user{
+        .user_photo{
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            overflow: hidden;
+            color: aquamarine;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+.section{
+    overflow:auto;
+    margin-bottom: 50px;
+}
+.footer{
+    position: sticky;
+    top: 20px;
+}
+.arrow_back{
+    position:relative;
+    width:30px;
+    height: 30px;
+    cursor:pointer;
+  /*   border:solid 1px white; */
+    transition:0.5s;
+    overflow:hidden;
+  }
+
+  .bets{
+    margin-top: 20px !important;
+  }
+  
+  .arrow_back:after{
+    position:absolute;
+    display:block;
+    content:"";
+    color:#3c3c3c;
+    width: 20px;
+    height: 15px;
+  /*   border:solid 1px;  */
+    top:-1px;
+    border-bottom:solid 2px;
+    transform:translatex(4px);
+  }
+  
+  .arrow_back:before{
+    position:absolute;
+    display:block;
+    content:"";
+    color:#3c3c3c;
+    width: 8px;
+    height: 8px;
+  /*   border:solid 1px;  */
+    border-top:solid 2px;
+    border-left:solid 2px;
+    top:50%;
+    left:2px;
+    transform-origin:0% 0%;
+    transform:rotatez(-45deg);
+
+  }

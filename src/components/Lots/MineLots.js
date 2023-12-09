@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./main.scss";
 import { Button, Input, Select } from "antd";
 import Card from "./Card";
@@ -6,8 +6,6 @@ import useModal from "../States";
 import Modal from "../Modal/Modal";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import ApiService from "../APIService/ApiService";
-import auth from "../Auth";
 
 const cards = [
   {
@@ -42,32 +40,13 @@ const cards = [
   },
 ];
 
-const Main = () => {
+const MineLots = () => {
   const isOpen = useModal((state) => state.isOpen);
   const toOpenModal = useModal((state) => state.open);
-  const id = auth((state) => state.id);
-  const [auctions, setAuctions] = useState([]); // [1,2,3,4,5
   const toCloseModal = useModal((state) => state.close);
-  const [categories, setCategories] = useState([]); // [1,2,3,4,5
 
 
   const navigate = useNavigate();
-
-  const getCategories = async () => {
-    let c = await ApiService.getCategory();
-    setCategories(c);
-  }
-
-  const getAuctions = async () => {
-    let a = await ApiService.getAuctions();
-    setAuctions(a.data);
-  }
-
-  useEffect(() => {
-    getCategories();
-    getAuctions();
-    console.log(id);
-  },[]);
 
   const navToNext = (card) => {
     navigate("/lot", { state: card });
@@ -99,17 +78,16 @@ const Main = () => {
         </div>
       </div>
       <div className="w100">
-        <div className="title_big flex_center">Аукционы</div>
+        <div className="title_big flex_center">Мои лоты</div>
         <div className="section_content">
-          {auctions.map((card, i) => (
+          {cards.map((card, i) => (
             <div className="card_wrapper" onClick={()=> navToNext(card)}>
               <Card
                 key={i}
-                id={card.id}
-                img={card.photoUrl}
-                label={card.name}
-                initPrice={card.startPrice}
-                dateOfStart={card.startDate}
+                img={card.img}
+                label={card.label}
+                initPrice={card.initPrice}
+                dateOfStart={card.dateOfStart}
               />
             </div>
           ))}
@@ -125,4 +103,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MineLots;

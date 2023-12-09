@@ -7,13 +7,14 @@ import Main from './components/Main/Main';
 import SignIn from './components/SignIn/SignIn';
 import { ConfigProvider } from "antd";
 import Theme from "./components/Assets/Ant_Design_Theme.json";
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <ConfigProvider theme={Theme}>
-    <Routing />;
+    <Routing />
     </ConfigProvider>
-  );
+  )
 }
 
 export default App;

@@ -1,0 +1,37 @@
+@import "../Assets/colors.scss";
+.modal{
+    position: absolute;
+    z-index: 10;
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    height: 100%;
+    &.close{
+        height: 0;
+        overflow: hidden;
+    }
+    &.open{
+        height: 100%;
+        overflow: auto;
+        width: 100%;
+        background: $clr-background;
+    }
+    .modal__body{
+        padding: 40% 0;
+        .meny_item{
+            padding: 20px 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+}
+.modal__close{
+    top: 0;
+    width: 100%;
+    text-align: right;
+    right: 0;
+    padding: 20px 30px;
+    cursor: pointer;
+    font-size: 25px;
+    color: #3c3c3c;
+}

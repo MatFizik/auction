@@ -1,0 +1,12 @@
+@import "../Assets/colors.scss";
+
+.footer_wrapp {
+  background-color: $clr-background;
+  z-index: 5;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 55px;
+  border: 1px solid #fff;
+}
