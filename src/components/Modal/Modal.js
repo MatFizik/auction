@@ -8,6 +8,11 @@ const Modal = ({ isOpen }) => {
   const isAuth = auth((state) => state.isAuth);
   const signout = auth((state) => state.signout);
   const toCloseModal = useModal((state) => state.close);
+
+  const exit = () => {
+    toCloseModal();
+    signout();
+  }
   return (
     <div className={`modal ${isOpen ? "open" : "close"}`}>
       <div className="modal__content flex_col">
@@ -19,7 +24,7 @@ const Modal = ({ isOpen }) => {
           <span className="meny_item"><Link to="/">Добавить лот</Link></span>
           <span className="meny_item"><Link to="/">Участник в лотах</Link></span>
           <span className="meny_item"><Link to="/">Мои лоты</Link></span>
-          <span className="meny_item" onClick={signout}>Выйти</span>
+          <span className="meny_item" onClick={exit}>Выйти</span>
         </div>
       </div>
     </div>

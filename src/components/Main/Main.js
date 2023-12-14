@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import ApiService from "../APIService/ApiService";
 import auth from "../Auth";
+import Search from "antd/es/input/Search";
 
 const cards = [
   {
@@ -47,6 +48,7 @@ const Main = () => {
   const toOpenModal = useModal((state) => state.open);
   const id = auth((state) => state.id);
   const [auctions, setAuctions] = useState([]); // [1,2,3,4,5
+  const [auctionsLocal, setAuctionsLocal] = useState([]); // [1,2,3,4,5
   const toCloseModal = useModal((state) => state.close);
   const [categories, setCategories] = useState([]); // [1,2,3,4,5
 
@@ -61,6 +63,7 @@ const Main = () => {
   const getAuctions = async () => {
     let a = await ApiService.getAuctions();
     setAuctions(a.data);
+    setAuctionsLocal(a.data);
   }
 
   useEffect(() => {
@@ -73,6 +76,12 @@ const Main = () => {
     navigate("/lot", { state: card });
   }
 
+  const search = (e) => {
+    let a = auctions.filter((item) => {
+      return item.name.includes(e.target.value);
+    });
+    setAuctionsLocal(a);
+  } 
   return (
     <div className="m20 section">
       <div className="header flex_row w100 flex_btw">
@@ -89,11 +98,8 @@ const Main = () => {
       <div className="w100">
         <div className="section_content">
           <div className="card_wrapp">
-            <div className="select_wrapp w100">
-              <Select className="w100" placeholder="Категории"></Select>
-            </div>
             <div>
-              <Input.Search></Input.Search>
+              <Input.Search onInput={search}></Input.Search>
             </div>
           </div>
         </div>
@@ -101,7 +107,7 @@ const Main = () => {
       <div className="w100">
         <div className="title_big flex_center">Аукционы</div>
         <div className="section_content">
-          {auctions.map((card, i) => (
+          {auctionsLocal?.map((card, i) => (
             <div className="card_wrapper" onClick={()=> navToNext(card)}>
               <Card
                 key={i}

@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react";
 import "../Assets/sections.scss";
 import "../Main/main.scss";
 import locale from "antd/es/date-picker/locale/ru_RU";
+import { useNavigate, useLocation } from "react-router-dom";
+import ImgCrop from "antd-img-crop";
+import ApiService from "../APIService/ApiService";
+import TextArea from "antd/es/input/TextArea";
+import auth from "../Auth";
+import dayjs from "dayjs";
+//import locale from 'antd/locale/ru_RU';
+import "moment/locale/ru";
+import moment from "moment";
 
 import {
   Button,
@@ -13,45 +22,36 @@ import {
   Upload,
   message,
 } from "antd";
-import { useNavigate, useLocation } from "react-router-dom";
-import ImgCrop from "antd-img-crop";
-import ApiService from "../APIService/ApiService";
-import TextArea from "antd/es/input/TextArea";
-import auth from "../Auth";
-import dayjs from "dayjs";
-//import locale from 'antd/locale/ru_RU';
-import "moment/locale/ru";
-import moment from "moment";
 
 const Add = () => {
   const [category, setCategory] = useState();
   const [dateStart, setDateStart] = useState();
   const [dateFinish, setDateFinish] = useState();
-
   const [categories, setCategories] = useState();
   const [imgBase, setImgBase] = useState();
   const [fileList, setFileList] = useState([]);
+
   const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
   };
 
+  const authId = auth((state) => state.id);
+
   const success = () => {
     messageApi.open({
-      type: 'success',
-      content: 'Аукцион успешно создан',
+      type: "success",
+      content: "Аукцион успешно создан",
     });
   };
 
   const error = () => {
     messageApi.open({
-      type: 'error',
-      content: 'Ошибка создания',
+      type: "error",
+      content: "Ошибка создания",
     });
   };
-  
-  const authId = auth((state) => state.id);
 
   const getCategories = async () => {
     let c = await ApiService.getCategory();
@@ -64,10 +64,6 @@ const Add = () => {
     });
     setCategories(obj);
   };
-
-  useEffect(() => {
-    getCategories();
-  }, []);
 
   const toBase = (file) => {
     const reader = new FileReader();
@@ -85,9 +81,7 @@ const Add = () => {
       let arr = [];
       arr.push(fileList);
       arr.push(s);
-
       setFileList(arr);
-
       console.log(s);
     };
   };
@@ -103,12 +97,11 @@ const Add = () => {
     formData.append("FinishDate", dateFinish);
     formData.append("startprice", data.initPrice);
     formData.append("step", data.minOfStep);
-
     let r = await ApiService.createAuction(formData);
-    if(r.code == 0){
+    if (r.code == 0) {
       success();
       navigate("/");
-    }else{
+    } else {
       error();
     }
     console.log(r);
@@ -140,6 +133,10 @@ const Add = () => {
     console.log(v, "Date2");
     setDateFinish(v);
   };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   return (
     <div>
@@ -211,15 +208,15 @@ const Add = () => {
           >
             <div className="section_wrapp">
               <span>Дата начала аукциона</span>
-                <label>
-                  <DatePicker
-                    id={"date-picker"}
-                    onChange={Date1}
-                    showTime
-                    locale={locale}
-                    className={"w100"}
-                  />
-                </label>
+              <label>
+                <DatePicker
+                  id={"date-picker"}
+                  onChange={Date1}
+                  showTime
+                  locale={locale}
+                  className={"w100"}
+                />
+              </label>
             </div>
           </Form.Item>
           <Form.Item
@@ -298,6 +295,6 @@ const Add = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Add;
