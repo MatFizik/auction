@@ -2,6 +2,16 @@
     margin-bottom: 10px;
 }
 .header{
+  .menu_items{
+    .menu_item{
+      margin-left: 25px;
+      margin-right: 25px;
+      &.exit{
+        color:rgb(212, 9, 9) !important;
+        cursor: pointer;
+      }
+    }
+  }
     .menu_burger_line{
         width: 30px;
         height: 3px;
@@ -21,6 +31,27 @@
             }
         }
     }
+    @media screen and (min-width: 750px){
+      .menu_burger{
+        display: none;
+      }
+    }
+    @media screen and (max-width: 750px){
+      .menu_items{
+        display: none;
+      }
+    }
+}
+@media screen and (min-width: 1000px) {
+  .section_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }  
+  .wrapper{
+    width: 70%;
+    margin-left: 15%;
+  }
 }
 .section{
     overflow:auto;

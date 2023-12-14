@@ -10,3 +10,8 @@
   height: 55px;
   border: 1px solid #fff;
 }
+@media screen and (min-width: 750px){
+  .footer_wrapp {
+    display: none;
+  }
+}

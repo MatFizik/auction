@@ -1,6 +1,6 @@
 @import "../Assets/colors.scss";
 .modal{
-    position: absolute;
+    position: fixed;
     z-index: 10;
     margin: 0 auto;
     left: 0;
